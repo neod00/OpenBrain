@@ -39,7 +39,7 @@ export default function CTA() {
                         Ready to Bring <span className="text-neon-cyan">Order</span> to Your Chaos?
                     </h2>
                     <p className="text-xl text-gray-400 mb-12">
-                        Let&apos;s discuss how OpenBrain Limited can transform your digital landscape.
+                        Let&apos;s discuss how OpenBrain can transform your digital landscape.
                     </p>
 
                     <a
@@ -55,7 +55,7 @@ export default function CTA() {
 
             {/* Footer */}
             <footer className="absolute bottom-0 left-0 w-full py-8 text-center text-gray-600 text-sm">
-                <p>&copy; {new Date().getFullYear()} OpenBrain Limited. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} OpenBrain. All rights reserved.</p>
             </footer>
         </section>
     );

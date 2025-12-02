@@ -89,7 +89,7 @@ export default function Hero() {
                     ref={subtitleRef}
                     className="text-lg md:text-2xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed"
                 >
-                    OpenBrain Limited transforms complex challenges into streamlined digital solutions.
+                    OpenBrain transforms complex challenges into streamlined digital solutions.
                 </p>
             </div>
 
