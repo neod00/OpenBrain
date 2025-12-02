@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import Image from 'next/image';
 
 export default function Hero() {
     const containerRef = useRef<HTMLElement>(null);
@@ -62,6 +63,14 @@ export default function Hero() {
         >
             {/* Ambient Background */}
             <div className="absolute inset-0 pointer-events-none">
+                <Image
+                    src="/background.png"
+                    alt="Abstract Background"
+                    fill
+                    className="object-cover opacity-40"
+                    priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-deep-black/80 via-transparent to-deep-black/80" />
                 <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-neon-purple/10 rounded-full blur-[120px]" />
                 <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-neon-cyan/10 rounded-full blur-[120px]" />
             </div>
