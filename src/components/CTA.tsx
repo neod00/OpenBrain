@@ -55,7 +55,7 @@ export default function CTA() {
 
             {/* Footer */}
             <footer className="absolute bottom-0 left-0 w-full py-8 text-center text-gray-600 text-sm">
-                <p>&copy; {new Date().getFullYear()} OpenBrain. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} OpenBrain Inc. All rights reserved.</p>
             </footer>
         </section>
     );
