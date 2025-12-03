@@ -52,9 +52,9 @@ export default function Portfolio() {
     ];
 
     return (
-        <section ref={sectionRef} className="py-32 bg-deep-black text-white">
+        <section ref={sectionRef} className="py-20 md:py-32 bg-deep-black text-white">
             <div className="container mx-auto px-6">
-                <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center">
+                <h2 className="text-3xl md:text-6xl font-bold mb-12 md:mb-16 text-center">
                     {t('portfolio.title')}
                 </h2>
 

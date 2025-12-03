@@ -59,8 +59,8 @@ export default function Solution() {
             <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
 
                 {/* Left Content */}
-                <div ref={contentRef} className="md:w-1/3">
-                    <h2 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                <div ref={contentRef} className="md:w-1/3 mb-12 md:mb-0">
+                    <h2 className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
                         {t('solution.title')}
                     </h2>
                     <div className="w-20 h-2 bg-neon-cyan mb-8" />

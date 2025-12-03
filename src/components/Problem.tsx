@@ -59,12 +59,12 @@ export default function Problem() {
     ];
 
     return (
-        <section ref={sectionRef} className="py-32 bg-deep-black text-white relative overflow-hidden">
+        <section ref={sectionRef} className="py-20 md:py-32 bg-deep-black text-white relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neon-purple/50 to-transparent opacity-30" />
 
             <div className="container mx-auto px-6 relative z-10">
-                <h2 className="text-4xl md:text-6xl font-bold mb-20 text-center">
+                <h2 className="text-3xl md:text-6xl font-bold mb-12 md:mb-20 text-center">
                     {t('problem.title')} <span className="text-neon-purple">{t('problem.chaos_highlight')}</span> {t('problem.title_suffix')}
                 </h2>
 

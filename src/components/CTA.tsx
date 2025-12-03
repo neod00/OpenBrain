@@ -31,13 +31,13 @@ export default function CTA() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="py-32 bg-deep-black text-white relative overflow-hidden">
+        <section ref={sectionRef} className="py-20 md:py-32 bg-deep-black text-white relative overflow-hidden">
             {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-neon-purple/10 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="container mx-auto px-6 relative z-10 text-center">
                 <div ref={contentRef} className="max-w-3xl mx-auto">
-                    <h2 className="text-4xl md:text-6xl font-bold mb-8">
+                    <h2 className="text-3xl md:text-6xl font-bold mb-8">
                         {t('cta.title')} <span className="text-neon-cyan">{t('cta.order_highlight')}</span> {t('cta.title_suffix')}
                     </h2>
                     <p className="text-xl text-gray-400 mb-12">

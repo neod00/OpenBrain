@@ -81,7 +81,7 @@ export default function Hero() {
             <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
                 <h1
                     ref={titleRef}
-                    className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter mb-8 leading-tight"
+                    className="text-4xl md:text-7xl lg:text-9xl font-bold tracking-tighter mb-8 leading-tight"
                 >
                     {t('hero.from')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">{t('hero.chaos')}</span>
                     <br />
