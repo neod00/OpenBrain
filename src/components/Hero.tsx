@@ -3,8 +3,10 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Image from 'next/image';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Hero() {
+    const { t } = useLanguage();
     const containerRef = useRef<HTMLElement>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
     const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -81,15 +83,15 @@ export default function Hero() {
                     ref={titleRef}
                     className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter mb-8 leading-tight"
                 >
-                    From <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Chaos</span>
+                    {t('hero.from')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">{t('hero.chaos')}</span>
                     <br />
-                    To <span className="text-neon-cyan drop-shadow-[0_0_15px_rgba(0,243,255,0.5)]">Order</span>
+                    {t('hero.to')} <span className="text-neon-cyan drop-shadow-[0_0_15px_rgba(0,243,255,0.5)]">{t('hero.order')}</span>
                 </h1>
                 <p
                     ref={subtitleRef}
                     className="text-lg md:text-2xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed"
                 >
-                    OpenBrain transforms complex challenges into streamlined digital solutions.
+                    {t('hero.subtitle')}
                 </p>
             </div>
 
@@ -98,7 +100,7 @@ export default function Hero() {
                 ref={scrollRef}
                 className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500"
             >
-                <span className="text-sm uppercase tracking-widest">Scroll</span>
+                <span className="text-sm uppercase tracking-widest">{t('hero.scroll')}</span>
                 <div className="w-[1px] h-12 bg-gradient-to-b from-neon-cyan to-transparent" />
             </div>
         </section>

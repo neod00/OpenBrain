@@ -4,8 +4,10 @@ import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Portfolio() {
+    const { t } = useLanguage();
     const sectionRef = useRef<HTMLElement>(null);
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -14,17 +16,18 @@ export default function Portfolio() {
 
         const ctx = gsap.context(() => {
             cardsRef.current.forEach((card, index) => {
-                gsap.from(card, {
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 80%',
-                    },
-                    y: 100,
-                    opacity: 0,
-                    duration: 1,
-                    ease: 'power3.out',
-                    delay: index * 0.2,
-                });
+                if (card) {
+                    gsap.from(card, {
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 85%',
+                        },
+                        y: 50,
+                        opacity: 0,
+                        duration: 0.8,
+                        delay: index * 0.2,
+                    });
+                }
             });
         }, sectionRef);
 
@@ -34,36 +37,36 @@ export default function Portfolio() {
     const projects = [
         {
             title: 'Insight Match',
-            description: 'AI-powered consultant matching platform connecting businesses with top-tier experts.',
-            url: 'https://insight-match-ashen.vercel.app/',
+            description: t('portfolio.insightmatch.desc'),
+            tech: ['Next.js', 'Python', 'AI'],
             color: 'from-blue-500 to-cyan-500',
-            tech: ['Next.js', 'AI Analysis', 'Matching Engine'],
+            url: 'https://insightmatch.co.kr'
         },
         {
             title: 'Carbon Mate',
-            description: 'Comprehensive carbon footprint tracking and management solution for sustainable business.',
-            url: 'https://carbonmate.vercel.app/',
+            description: t('portfolio.carbonmate.desc'),
+            tech: ['React', 'Node.js', 'Data Viz'],
             color: 'from-green-500 to-emerald-500',
-            tech: ['React', 'Data Viz', 'Sustainability'],
-        },
+            url: 'https://carbonmate.net'
+        }
     ];
 
     return (
-        <section ref={sectionRef} className="py-32 bg-deep-black text-white relative">
+        <section ref={sectionRef} className="py-32 bg-deep-black text-white">
             <div className="container mx-auto px-6">
-                <h2 className="text-4xl md:text-6xl font-bold mb-20 text-center">
-                    Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-purple">Work</span>
+                <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center">
+                    {t('portfolio.title')}
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     {projects.map((project, index) => (
                         <div
                             key={index}
                             ref={(el) => { if (el) cardsRef.current[index] = el; }}
                             className="group relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:border-white/20 transition-colors"
                         >
-                            {/* Project Preview (Placeholder Gradient for now) */}
-                            <div className={`h-64 w-full bg-gradient-to-br ${project.color} opacity-20 group-hover:opacity-30 transition-opacity duration-500 relative overflow-hidden`}>
+                            <div className={`h-64 w-full bg-gradient-to-br ${project.color} opacity-20 group-hover:opacity-30 transition-opacity duration-500 relative overflow-hidden`}
+                            >
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <span className="text-4xl font-bold text-white/20 group-hover:text-white/40 transition-colors">{project.title}</span>
                                 </div>

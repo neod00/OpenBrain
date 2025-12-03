@@ -5,7 +5,10 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AlertTriangle, Clock, Zap } from 'lucide-react';
 
+import { useLanguage } from '@/context/LanguageContext';
+
 export default function Problem() {
+    const { t } = useLanguage();
     const sectionRef = useRef<HTMLElement>(null);
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -40,18 +43,18 @@ export default function Problem() {
     const problems = [
         {
             icon: AlertTriangle,
-            title: 'Inefficient Workflows',
-            description: 'Manual processes and disconnected systems creating bottlenecks in your daily operations.',
+            title: t('problem.card1.title'),
+            description: t('problem.card1.desc'),
         },
         {
             icon: Clock,
-            title: 'Resource Drain',
-            description: 'Valuable time and talent wasted on repetitive tasks instead of high-value strategic work.',
+            title: t('problem.card2.title'),
+            description: t('problem.card2.desc'),
         },
         {
             icon: Zap,
-            title: 'Growth Stagnation',
-            description: 'Inability to scale effectively due to technical debt and lack of automated systems.',
+            title: t('problem.card3.title'),
+            description: t('problem.card3.desc'),
         },
     ];
 
@@ -62,7 +65,7 @@ export default function Problem() {
 
             <div className="container mx-auto px-6 relative z-10">
                 <h2 className="text-4xl md:text-6xl font-bold mb-20 text-center">
-                    The <span className="text-neon-purple">Chaos</span> Holding You Back
+                    {t('problem.title')} <span className="text-neon-purple">{t('problem.chaos_highlight')}</span> {t('problem.title_suffix')}
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

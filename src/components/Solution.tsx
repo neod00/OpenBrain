@@ -3,13 +3,14 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { CheckCircle2, ArrowRight, Layers, Cpu } from 'lucide-react';
+import { Search, PenTool, Code2, Rocket } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Solution() {
-    const sectionRef = useRef<HTMLElement>(null);
-    const triggerRef = useRef<HTMLDivElement>(null);
+    const { t } = useLanguage();
+    const containerRef = useRef<HTMLElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
-    const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+    const cardsRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -17,97 +18,65 @@ export default function Solution() {
         const ctx = gsap.context(() => {
             const tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: triggerRef.current,
+                    trigger: containerRef.current,
                     start: 'top top',
-                    end: '+=300%',
+                    end: '+=200%',
                     scrub: 1,
                     pin: true,
                 },
             });
 
-            // Phase 1: Slide in main concept
             tl.from(contentRef.current, {
                 x: -100,
                 opacity: 0,
                 duration: 1,
             })
-                // Phase 2: Reveal steps
                 .from(cardsRef.current, {
                     y: 50,
                     opacity: 0,
                     stagger: 0.5,
                     duration: 2,
                 })
-                // Phase 3: Final polish (scale up slightly)
                 .to(contentRef.current, {
                     scale: 1.05,
                     duration: 2,
                 });
 
-        }, sectionRef);
+        }, containerRef);
 
         return () => ctx.revert();
     }, []);
 
     const steps = [
-        {
-            icon: Layers,
-            title: 'Structure',
-            description: 'We analyze your chaos and build a solid digital foundation.',
-        },
-        {
-            icon: Cpu,
-            title: 'Automation',
-            description: 'Intelligent systems replace manual effort, freeing your team.',
-        },
-        {
-            icon: CheckCircle2,
-            title: 'Optimization',
-            description: 'Continuous refinement for peak performance and scalability.',
-        },
+        { icon: Search, title: t('solution.step1.title'), description: t('solution.step1.desc') },
+        { icon: PenTool, title: t('solution.step2.title'), description: t('solution.step2.desc') },
+        { icon: Code2, title: t('solution.step3.title'), description: t('solution.step3.desc') },
+        { icon: Rocket, title: t('solution.step4.title'), description: t('solution.step4.desc') },
     ];
 
     return (
-        <section ref={sectionRef} className="bg-deep-black text-white relative">
-            <div ref={triggerRef} className="h-screen flex items-center justify-center overflow-hidden">
-                <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+        <section ref={containerRef} className="h-screen bg-deep-black text-white flex items-center overflow-hidden">
+            <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
 
-                    {/* Main Content */}
-                    <div ref={contentRef} className="flex-1 text-center md:text-left">
-                        <h2 className="text-4xl md:text-6xl font-bold mb-6">
-                            Bringing <span className="text-neon-cyan">Order</span> to Your Business
-                        </h2>
-                        <p className="text-xl text-gray-400 mb-8 max-w-lg">
-                            Our systematic approach transforms complexity into clarity, turning your digital presence into a powerful asset.
-                        </p>
-                        <button className="group flex items-center gap-2 text-neon-cyan font-semibold hover:text-white transition-colors">
-                            Learn about our process <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </button>
-                    </div>
-
-                    {/* Steps Cards */}
-                    <div className="flex-1 grid gap-6 w-full max-w-md">
-                        {steps.map((step, index) => (
-                            <div
-                                key={index}
-                                ref={(el) => { if (el) cardsRef.current[index] = el; }}
-                                className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-2xl flex items-start gap-4 hover:bg-white/10 transition-colors"
-                            >
-                                <div className="p-3 rounded-xl bg-neon-cyan/10 text-neon-cyan">
-                                    <step.icon className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                                    <p className="text-gray-400 text-sm">{step.description}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
+                {/* Left Content */}
+                <div ref={contentRef} className="md:w-1/3">
+                    <h2 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                        {t('solution.title')}
+                    </h2>
+                    <div className="w-20 h-2 bg-neon-cyan mb-8" />
                 </div>
 
-                {/* Background Gradient */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-neon-cyan/5 rounded-full blur-[150px] pointer-events-none -z-10" />
+                {/* Right Cards */}
+                <div ref={cardsRef} className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {steps.map((step, index) => (
+                        <div key={index} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                            <step.icon className="w-10 h-10 text-neon-cyan mb-4" />
+                            <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                            <p className="text-gray-400">{step.description}</p>
+                        </div>
+                    ))}
+                </div>
+
             </div>
         </section>
     );

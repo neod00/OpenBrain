@@ -4,8 +4,10 @@ import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Mail, ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function CTA() {
+    const { t } = useLanguage();
     const sectionRef = useRef<HTMLElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
 
@@ -36,10 +38,10 @@ export default function CTA() {
             <div className="container mx-auto px-6 relative z-10 text-center">
                 <div ref={contentRef} className="max-w-3xl mx-auto">
                     <h2 className="text-4xl md:text-6xl font-bold mb-8">
-                        Ready to Bring <span className="text-neon-cyan">Order</span> to Your Chaos?
+                        {t('cta.title')} <span className="text-neon-cyan">{t('cta.order_highlight')}</span> {t('cta.title_suffix')}
                     </h2>
                     <p className="text-xl text-gray-400 mb-12">
-                        Let&apos;s discuss how OpenBrain can transform your digital landscape.
+                        {t('cta.subtitle')}
                     </p>
 
                     <a
@@ -47,7 +49,7 @@ export default function CTA() {
                         className="inline-flex items-center gap-3 px-8 py-4 bg-white text-deep-black rounded-full font-bold text-lg hover:bg-neon-cyan hover:scale-105 transition-all duration-300 group"
                     >
                         <Mail className="w-5 h-5" />
-                        Start a Project
+                        {t('cta.button')}
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </a>
                 </div>
@@ -55,7 +57,7 @@ export default function CTA() {
 
             {/* Footer */}
             <footer className="absolute bottom-0 left-0 w-full py-8 text-center text-gray-600 text-sm">
-                <p>&copy; {new Date().getFullYear()} OpenBrain Inc. All rights reserved.</p>
+                <p>{t('cta.footer')}</p>
             </footer>
         </section>
     );
