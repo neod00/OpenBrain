@@ -62,7 +62,7 @@ export default function Problem() {
                         <div
                             key={index}
                             ref={(el) => { if (el) cardsRef.current[index] = el; }}
-                            className="group p-8 rounded-3xl bg-zinc-900/80 border border-white/20 hover:border-neon-purple/50 hover:bg-zinc-800/80 transition-all duration-500 hover:-translate-y-2"
+                            className="group p-8 rounded-3xl bg-zinc-800 border border-white/30 hover:border-neon-purple hover:bg-zinc-700 shadow-lg hover:shadow-neon-purple/20 transition-all duration-500 hover:-translate-y-2"
                         >
                             <div className="w-16 h-16 rounded-2xl bg-neon-purple/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
                                 <item.icon className="w-8 h-8 text-neon-purple" />
