@@ -108,7 +108,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
     const t = (key: string) => {
         // @ts-ignore
-        return translations[language][key] || key;
+        const value = translations[language][key];
+        return value !== undefined ? value : key;
     };
 
     return (

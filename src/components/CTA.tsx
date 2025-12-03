@@ -45,7 +45,7 @@ export default function CTA() {
                     </p>
 
                     <a
-                        href="mailto:contact@openbrain.com"
+                        href="mailto:openbrain.carbonmate@gmail.com"
                         className="inline-flex items-center gap-3 px-8 py-4 bg-white text-deep-black rounded-full font-bold text-lg hover:bg-neon-cyan hover:scale-105 transition-all duration-300 group"
                     >
                         <Mail className="w-5 h-5" />
