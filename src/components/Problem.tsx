@@ -13,17 +13,25 @@ export default function Problem() {
         gsap.registerPlugin(ScrollTrigger);
 
         const ctx = gsap.context(() => {
-            gsap.from(cardsRef.current, {
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: 'top 70%',
+            gsap.fromTo(cardsRef.current.filter(Boolean),
+                {
+                    y: 50,
+                    opacity: 0,
+                    autoAlpha: 0,
                 },
-                y: 100,
-                opacity: 0,
-                duration: 1,
-                stagger: 0.2,
-                ease: 'power3.out',
-            });
+                {
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: 'top 80%',
+                    },
+                    y: 0,
+                    opacity: 1,
+                    autoAlpha: 1,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    ease: 'power3.out',
+                }
+            );
         }, sectionRef);
 
         return () => ctx.revert();
@@ -62,7 +70,7 @@ export default function Problem() {
                         <div
                             key={index}
                             ref={(el) => { if (el) cardsRef.current[index] = el; }}
-                            className="group p-8 rounded-3xl bg-zinc-800 border border-white/30 hover:border-neon-purple hover:bg-zinc-700 shadow-lg hover:shadow-neon-purple/20 transition-all duration-500 hover:-translate-y-2"
+                            className="group p-8 rounded-3xl bg-zinc-800 border border-white/40 hover:border-neon-purple hover:bg-zinc-700 shadow-lg hover:shadow-neon-purple/20 transition-all duration-300 hover:-translate-y-1"
                         >
                             <div className="w-16 h-16 rounded-2xl bg-neon-purple/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
                                 <item.icon className="w-8 h-8 text-neon-purple" />
