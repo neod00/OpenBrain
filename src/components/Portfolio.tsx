@@ -40,14 +40,16 @@ export default function Portfolio() {
             description: t('portfolio.insightmatch.desc'),
             tech: ['Next.js', 'Python', 'AI'],
             color: 'from-blue-500 to-cyan-500',
-            url: 'https://insightmatch.co.kr'
+            url: 'https://insightmatch.co.kr',
+            previewUrl: 'https://insight-match-ashen.vercel.app/index.html'
         },
         {
             title: 'Carbon Mate',
             description: t('portfolio.carbonmate.desc'),
             tech: ['React', 'Node.js', 'Data Viz'],
             color: 'from-green-500 to-emerald-500',
-            url: 'https://carbonmate.net'
+            url: 'https://carbonmate.net',
+            previewUrl: 'https://carbonmate.vercel.app/'
         }
     ];
 
@@ -65,11 +67,15 @@ export default function Portfolio() {
                             ref={(el) => { if (el) cardsRef.current[index] = el; }}
                             className="group relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:border-white/20 transition-colors"
                         >
-                            <div className={`h-64 w-full bg-gradient-to-br ${project.color} opacity-20 group-hover:opacity-30 transition-opacity duration-500 relative overflow-hidden`}
-                            >
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <span className="text-4xl font-bold text-white/20 group-hover:text-white/40 transition-colors">{project.title}</span>
-                                </div>
+                            <div className="h-64 w-full relative overflow-hidden bg-black">
+                                <iframe
+                                    src={project.previewUrl}
+                                    title={project.title}
+                                    className="w-full h-[200%] md:h-[200%] w-[200%] md:w-[200%] origin-top-left scale-50 pointer-events-none border-0"
+                                    loading="lazy"
+                                />
+                                {/* Hover Overlay Effect */}
+                                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/0 transition-colors duration-500" />
                             </div>
 
                             <div className="p-8">

@@ -1,0 +1,8 @@
+ctx7sk-175af410-16e9-4496-a92e-a7aeb9fcdb67
+
+
+TestSprite API
+sk-user-bIyi4ipUevAGEsJIB1EDBekB29krMSI-sAmlDI1p29Fr2nHXmIMllaCENsT5EZ0D-web0xjkyAQt3E3CsTNDcakxACVePe_Crfo8YtkwnoT1jOmWr82F45mwnZfEfxtn_Bg
+
+
+path: C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\dotnet\\;d:\\cursor\\resources\\app\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\Git\\cmd;D:\\ffmpeg-7.1.1-essentials_build\\ffmpeg-7.1.1-essentials_build\\bin;;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\Users\\NT940XHA\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\;C:\\Users\\NT940XHA\\AppData\\Local\\Programs\\Python\\Python313\\;C:\\Users\\NT940XHA\\AppData\\Local\\Programs\\Python\\Launcher\\;C:\\Users\\NT940XHA\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\NT940XHA\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;D:\\cursor\\resources\\app\\bin;C:\\Users\\NT940XHA\\AppData\\Roaming\\npm;D:\\Antigravity\\Antigravity\\bin
