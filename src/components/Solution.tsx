@@ -16,32 +16,29 @@ export default function Solution() {
         gsap.registerPlugin(ScrollTrigger);
 
         const ctx = gsap.context(() => {
-            const tl = gsap.timeline({
+            // Animate Text
+            gsap.from(contentRef.current, {
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: 'top top',
-                    end: '+=200%',
-                    scrub: 1,
-                    pin: true,
+                    start: 'top 80%',
                 },
-            });
-
-            tl.from(contentRef.current, {
-                x: -100,
+                x: -50,
                 opacity: 0,
                 duration: 1,
-            })
-                .from(cardsRef.current, {
-                    y: 50,
-                    opacity: 0,
-                    stagger: 0.5,
-                    duration: 2,
-                })
-                .to(contentRef.current, {
-                    scale: 1.05,
-                    duration: 2,
-                });
+                ease: 'power3.out',
+            });
 
+            // Animate Cards
+            gsap.from(cardsRef.current, {
+                scrollTrigger: {
+                    trigger: cardsRef.current,
+                    start: 'top 85%',
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out',
+            });
         }, containerRef);
 
         return () => ctx.revert();
@@ -55,7 +52,7 @@ export default function Solution() {
     ];
 
     return (
-        <section ref={containerRef} className="h-screen bg-deep-black text-white flex items-center overflow-hidden">
+        <section ref={containerRef} className="py-20 md:py-32 bg-deep-black text-white overflow-visible">
             <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
 
                 {/* Left Content */}
