@@ -40,7 +40,7 @@ export default function Portfolio() {
             description: t('portfolio.insightmatch.desc'),
             tech: ['Next.js', 'Python', 'AI'],
             color: 'from-blue-500 to-cyan-500',
-            url: 'https://insightmatch.co.kr',
+            url: 'https://insight-match-ashen.vercel.app/index.html',
             previewUrl: 'https://insight-match-ashen.vercel.app/index.html'
         },
         {
@@ -48,7 +48,7 @@ export default function Portfolio() {
             description: t('portfolio.carbonmate.desc'),
             tech: ['React', 'Node.js', 'Data Viz'],
             color: 'from-green-500 to-emerald-500',
-            url: 'https://carbonmate.net',
+            url: 'https://carbonmate.vercel.app/',
             previewUrl: 'https://carbonmate.vercel.app/'
         }
     ];
