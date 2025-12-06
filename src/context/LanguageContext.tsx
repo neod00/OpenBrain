@@ -46,6 +46,7 @@ const translations = {
         'portfolio.title': '주요 프로젝트',
         'portfolio.insightmatch.desc': '기업과 검증된 전문가를 연결하는 AI 기반 지능형 매칭 플랫폼.',
         'portfolio.carbonmate.desc': '지속 가능한 경영을 위한 기업용 탄소 배출량 추적 및 관리 솔루션.',
+        'portfolio.ghg.desc': '조직의 직접 및 간접 온실가스 배출량을 계산하는 Scope 1, 2 & 3 포괄적 솔루션.',
 
         // CTA
         'cta.title': '비즈니스의',
@@ -90,6 +91,7 @@ const translations = {
         'portfolio.title': 'Selected Works',
         'portfolio.insightmatch.desc': 'AI-powered intelligent matching platform.',
         'portfolio.carbonmate.desc': 'Carbon footprint tracker for a sustainable future.',
+        'portfolio.ghg.desc': 'Comprehensive Scope 1, 2 & 3 greenhouse gas emission calculator for organizations.',
 
         // CTA
         'cta.title': 'Ready to Bring',

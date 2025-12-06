@@ -44,6 +44,14 @@ export default function Portfolio() {
             previewUrl: 'https://insight-match-ashen.vercel.app/index.html'
         },
         {
+            title: 'GHG Protocol Calculation',
+            description: t('portfolio.ghg.desc'),
+            tech: ['Next.js', 'Supabase', 'Tailwind'],
+            color: 'from-green-600 to-teal-600',
+            url: 'https://ghg-protocol-calculation.vercel.app/',
+            previewUrl: 'https://ghg-protocol-calculation.vercel.app/'
+        },
+        {
             title: 'Carbon Mate',
             description: t('portfolio.carbonmate.desc'),
             tech: ['React', 'Node.js', 'Data Viz'],
