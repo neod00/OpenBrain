@@ -4,6 +4,7 @@ import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Portfolio() {
@@ -39,25 +40,22 @@ export default function Portfolio() {
             title: 'Insight Match',
             description: t('portfolio.insightmatch.desc'),
             tech: ['Next.js', 'Python', 'AI'],
-            color: 'from-blue-500 to-cyan-500',
+            preview: '/preview-insight-match.png',
             url: 'https://insight-match-ashen.vercel.app/index.html',
-            previewUrl: 'https://insight-match-ashen.vercel.app/index.html'
         },
         {
             title: 'GHG Protocol Calculation',
             description: t('portfolio.ghg.desc'),
             tech: ['Next.js', 'Supabase', 'Tailwind'],
-            color: 'from-green-600 to-teal-600',
+            preview: '/preview-ghg-protocol.png',
             url: 'https://ghg-protocol-calculation.vercel.app/',
-            previewUrl: 'https://ghg-protocol-calculation.vercel.app/'
         },
         {
             title: 'Carbon Mate',
             description: t('portfolio.carbonmate.desc'),
             tech: ['React', 'Node.js', 'Data Viz'],
-            color: 'from-green-500 to-emerald-500',
+            preview: '/preview-carbon-mate.png',
             url: 'https://carbonmate.vercel.app/',
-            previewUrl: 'https://carbonmate.vercel.app/'
         }
     ];
 
@@ -75,10 +73,15 @@ export default function Portfolio() {
                             ref={(el) => { if (el) cardsRef.current[index] = el; }}
                             className="group relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:border-white/20 transition-colors"
                         >
-                            <div className={`h-64 w-full relative overflow-hidden bg-gradient-to-br ${project.color} opacity-80 group-hover:opacity-100 transition-opacity flex items-center justify-center`}>
-                                <div className="absolute inset-0 bg-deep-black/20 mix-blend-overlay" />
-                                <span className="font-display text-white/30 font-bold text-4xl tracking-widest uppercase mix-blend-overlay">Preview</span>
-                            </div>
+                            <a href={project.url} target="_blank" rel="noopener noreferrer" className="block h-64 w-full relative overflow-hidden">
+                                <Image
+                                    src={project.preview}
+                                    alt={`${project.title} preview`}
+                                    fill
+                                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-deep-black/10 group-hover:bg-transparent transition-colors duration-500" />
+                            </a>
 
                             <div className="p-8">
                                 <div className="flex justify-between items-start mb-4">
