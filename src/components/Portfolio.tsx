@@ -75,15 +75,9 @@ export default function Portfolio() {
                             ref={(el) => { if (el) cardsRef.current[index] = el; }}
                             className="group relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:border-white/20 transition-colors"
                         >
-                            <div className="h-64 w-full relative overflow-hidden bg-black">
-                                <iframe
-                                    src={project.previewUrl}
-                                    title={project.title}
-                                    className="w-full h-[200%] md:h-[200%] w-[200%] md:w-[200%] origin-top-left scale-50 pointer-events-none border-0"
-                                    loading="lazy"
-                                />
-                                {/* Hover Overlay Effect */}
-                                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/0 transition-colors duration-500" />
+                            <div className={`h-64 w-full relative overflow-hidden bg-gradient-to-br ${project.color} opacity-80 group-hover:opacity-100 transition-opacity flex items-center justify-center`}>
+                                <div className="absolute inset-0 bg-deep-black/20 mix-blend-overlay" />
+                                <span className="text-white/30 font-bold text-4xl tracking-widest uppercase mix-blend-overlay">Preview</span>
                             </div>
 
                             <div className="p-8">

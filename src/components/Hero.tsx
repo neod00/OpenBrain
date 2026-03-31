@@ -73,15 +73,15 @@ export default function Hero() {
                     priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-deep-black/80 via-transparent to-deep-black/80" />
-                <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-neon-purple/10 rounded-full blur-[120px]" />
-                <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-neon-cyan/10 rounded-full blur-[120px]" />
+                <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw]" style={{ background: 'radial-gradient(circle, var(--color-neon-purple) 0%, transparent 70%)', opacity: 0.15 }} />
+                <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw]" style={{ background: 'radial-gradient(circle, var(--color-neon-cyan) 0%, transparent 70%)', opacity: 0.15 }} />
             </div>
 
             {/* Content */}
             <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
                 <h1
                     ref={titleRef}
-                    className="text-4xl md:text-7xl lg:text-9xl font-bold tracking-tighter mb-8 leading-tight"
+                    className="font-display text-4xl md:text-7xl lg:text-9xl font-bold tracking-tighter mb-8 leading-tight"
                 >
                     {t('hero.from')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">{t('hero.chaos')}</span>
                     <br />

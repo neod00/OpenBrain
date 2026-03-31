@@ -53,27 +53,42 @@ export default function Solution() {
 
     return (
         <section ref={containerRef} className="py-20 md:py-32 bg-deep-black text-white overflow-visible">
-            <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+            <div className="container mx-auto px-6">
+                <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+                    {/* Left Sticky Content */}
+                    <div ref={contentRef} className="lg:w-4/12 lg:sticky lg:top-32">
+                        <h2 className="font-display text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-tight">
+                            {t('solution.title')}
+                        </h2>
+                        <div className="w-24 h-1 bg-neon-cyan mb-8" />
+                    </div>
 
-                {/* Left Content */}
-                <div ref={contentRef} className="md:w-1/3 mb-12 md:mb-0">
-                    <h2 className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
-                        {t('solution.title')}
-                    </h2>
-                    <div className="w-20 h-2 bg-neon-cyan mb-8" />
-                </div>
-
-                {/* Right Cards */}
-                <div ref={cardsRef} className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {steps.map((step, index) => (
-                        <div key={index} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                            <step.icon className="w-10 h-10 text-neon-cyan mb-4" />
-                            <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                            <p className="text-gray-400">{step.description}</p>
+                    {/* Right Timeline */}
+                    <div ref={cardsRef} className="lg:w-8/12 w-full">
+                        <div className="flex flex-col border-l-2 border-white/10 pl-8 md:pl-16 relative">
+                            {steps.map((step, index) => (
+                                <div key={index} className="relative pb-20 last:pb-0 group">
+                                    {/* Timeline Node */}
+                                    <div className="absolute left-[-2.1rem] md:left-[-4.1rem] top-2 w-4 h-4 rounded-full bg-deep-black border-2 border-white/30 group-hover:border-neon-cyan group-hover:bg-neon-cyan transition-all duration-500" />
+                                    
+                                    <span className="font-display text-neon-cyan text-sm tracking-widest uppercase mb-4 block">
+                                        Phase 0{index + 1}
+                                    </span>
+                                    
+                                    <h3 className="font-display text-3xl md:text-4xl font-bold mb-6 group-hover:text-neon-cyan transition-colors duration-300">
+                                        {step.title}
+                                    </h3>
+                                    
+                                    <p className="text-xl md:text-2xl text-gray-400 leading-relaxed font-light mb-8 max-w-2xl">
+                                        {step.description}
+                                    </p>
+                                    
+                                    <step.icon className="w-10 h-10 text-white/20 group-hover:text-neon-cyan transition-colors duration-500" />
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
-
             </div>
         </section>
     );
