@@ -54,7 +54,7 @@ const translations = {
         'cta.title_suffix': '를 확립하세요',
         'cta.subtitle': '오픈브레인이 당신의 디지털 혁신 파트너가 되어드리겠습니다.',
         'cta.button': '무료 상담 신청하기',
-        'cta.footer': '© 2025 OpenBrain Inc. All rights reserved.',
+        'cta.footer': '© 2026 OpenBrain Inc. All rights reserved.',
     },
     en: {
         // Hero
@@ -99,7 +99,7 @@ const translations = {
         'cta.title_suffix': 'to Your Chaos?',
         'cta.subtitle': 'Let\'s discuss how OpenBrain can transform your digital landscape.',
         'cta.button': 'Start a Project',
-        'cta.footer': '© 2025 OpenBrain Inc. All rights reserved.',
+        'cta.footer': '© 2026 OpenBrain Inc. All rights reserved.',
     },
 };
 
