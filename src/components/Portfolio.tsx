@@ -62,9 +62,9 @@ export default function Portfolio() {
     ];
 
     return (
-        <section ref={sectionRef} className="py-20 md:py-32 bg-deep-black text-white">
+        <section ref={sectionRef} className="section-padding bg-deep-black text-white">
             <div className="container mx-auto px-6">
-                <h2 className="text-3xl md:text-6xl font-bold mb-12 md:mb-16 text-center">
+                <h2 className="font-display text-4xl md:text-7xl font-bold mb-16 md:mb-24 text-center">
                     {t('portfolio.title')}
                 </h2>
 
@@ -77,12 +77,12 @@ export default function Portfolio() {
                         >
                             <div className={`h-64 w-full relative overflow-hidden bg-gradient-to-br ${project.color} opacity-80 group-hover:opacity-100 transition-opacity flex items-center justify-center`}>
                                 <div className="absolute inset-0 bg-deep-black/20 mix-blend-overlay" />
-                                <span className="text-white/30 font-bold text-4xl tracking-widest uppercase mix-blend-overlay">Preview</span>
+                                <span className="font-display text-white/30 font-bold text-4xl tracking-widest uppercase mix-blend-overlay">Preview</span>
                             </div>
 
                             <div className="p-8">
                                 <div className="flex justify-between items-start mb-4">
-                                    <h3 className="text-2xl font-bold">{project.title}</h3>
+                                    <h3 className="font-display text-2xl md:text-3xl font-bold">{project.title}</h3>
                                     <a
                                         href={project.url}
                                         target="_blank"

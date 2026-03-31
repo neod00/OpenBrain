@@ -59,7 +59,7 @@ export default function Problem() {
     ];
 
     return (
-        <section ref={sectionRef} className="py-20 md:py-32 bg-deep-black text-white relative overflow-hidden">
+        <section ref={sectionRef} className="section-padding bg-deep-black text-white relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neon-purple/50 to-transparent opacity-30" />
 

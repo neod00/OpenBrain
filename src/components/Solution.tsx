@@ -52,7 +52,7 @@ export default function Solution() {
     ];
 
     return (
-        <section ref={containerRef} className="py-20 md:py-32 bg-deep-black text-white overflow-visible">
+        <section ref={containerRef} className="section-padding bg-deep-black text-white overflow-visible">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
                     {/* Left Sticky Content */}

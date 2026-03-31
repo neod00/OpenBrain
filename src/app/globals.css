@@ -6,6 +6,13 @@
   --deep-black: #0a0a0a;
   --neon-cyan: #00f3ff;
   --neon-purple: #b23aff;
+  
+  /* Semantic Tokens */
+  --section-py-mobile: 5rem;
+  --section-py-desktop: 8rem;
+  --container-px: 1.5rem;
+  --radius-card: 1.5rem;
+  --radius-button: 9999px;
 }
 
 @theme inline {
@@ -16,6 +23,10 @@
   --color-neon-purple: var(--neon-purple);
   --font-sans: var(--font-jakarta), "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
   --font-display: var(--font-space), "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  
+  /* Custom Utilities */
+  --spacing-section-y: clamp(var(--section-py-mobile), 10vh, var(--section-py-desktop));
+  --radius-card: var(--radius-card);
 }
 
 body {
@@ -23,4 +34,11 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+}
+
+@layer utilities {
+  .section-padding {
+    padding-top: var(--spacing-section-y);
+    padding-bottom: var(--spacing-section-y);
+  }
 }
