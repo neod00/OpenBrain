@@ -47,6 +47,8 @@ const translations = {
         'portfolio.insightmatch.desc': '기업과 검증된 전문가를 연결하는 AI 기반 지능형 매칭 플랫폼.',
         'portfolio.carbonmate.desc': '글로벌 규제 대응을 위한 ISO 14067 기준 제품 탄소발자국 산정 및 리포팅 툴.',
         'portfolio.ghg.desc': '조직의 직접 및 간접 온실가스 배출량을 계산하는 Scope 1, 2 & 3 포괄적 솔루션.',
+        'portfolio.cbamy.desc': '국내 수출기업과 컨설턴트를 위한 EU CBAM 내재배출량(SEE) 산정 PWA. 입력 자료는 브라우저에만 저장되고, EU 공식 템플릿으로 바로 내보냅니다.',
+        'portfolio.status.dev': '개발중',
 
         // CTA
         'cta.title': '비즈니스의',
@@ -92,6 +94,8 @@ const translations = {
         'portfolio.insightmatch.desc': 'AI-powered intelligent matching platform.',
         'portfolio.carbonmate.desc': 'ISO 14067 compliant product carbon footprint calculation and reporting tool for global compliance.',
         'portfolio.ghg.desc': 'Comprehensive Scope 1, 2 & 3 greenhouse gas emission calculator for organizations.',
+        'portfolio.cbamy.desc': 'Local-first PWA for Korean exporters and consultants to calculate EU CBAM embedded emissions (SEE). Data stays in the browser and exports straight to the official EU template.',
+        'portfolio.status.dev': 'In Development',
 
         // CTA
         'cta.title': 'Ready to Bring',

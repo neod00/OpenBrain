@@ -4,8 +4,8 @@ import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
-import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
+import ProjectMotion, { type MotionVariant } from '@/components/ProjectMotion';
 
 export default function Portfolio() {
     const { t } = useLanguage();
@@ -35,28 +35,43 @@ export default function Portfolio() {
         return () => ctx.revert();
     }, []);
 
-    const projects = [
+    const projects: {
+        title: string;
+        description: string;
+        tech: string[];
+        motion: MotionVariant;
+        url: string;
+        inDevelopment?: boolean;
+    }[] = [
         {
             title: 'Insight Match',
             description: t('portfolio.insightmatch.desc'),
             tech: ['Next.js', 'Python', 'AI'],
-            preview: '/preview-insight-match.png',
+            motion: 'insight',
             url: 'https://insight-match-ashen.vercel.app/index.html',
         },
         {
             title: 'GHG Protocol Calculation',
             description: t('portfolio.ghg.desc'),
             tech: ['Next.js', 'Supabase', 'Tailwind'],
-            preview: '/preview-ghg-protocol.png',
+            motion: 'ghg',
             url: 'https://ghg-protocol-calculation.vercel.app/',
         },
         {
             title: 'Carbon Mate',
             description: t('portfolio.carbonmate.desc'),
             tech: ['React', 'Node.js', 'Data Viz'],
-            preview: '/preview-carbon-mate.png',
+            motion: 'carbonmate',
             url: 'https://carbonmate.vercel.app/',
-        }
+        },
+        {
+            title: 'CBAMy',
+            description: t('portfolio.cbamy.desc'),
+            tech: ['Next.js', 'PWA', 'IndexedDB'],
+            motion: 'cbamy',
+            url: 'https://www.cbamy.kr/',
+            inDevelopment: true,
+        },
     ];
 
     return (
@@ -73,19 +88,32 @@ export default function Portfolio() {
                             ref={(el) => { if (el) cardsRef.current[index] = el; }}
                             className="group relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:border-white/20 transition-colors"
                         >
-                            <a href={project.url} target="_blank" rel="noopener noreferrer" className="block h-64 w-full relative overflow-hidden">
-                                <Image
-                                    src={project.preview}
-                                    alt={`${project.title} preview`}
-                                    fill
-                                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-deep-black/10 group-hover:bg-transparent transition-colors duration-500" />
+                            <a
+                                href={project.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={project.title}
+                                className="block aspect-[16/9] w-full relative overflow-hidden border-b border-white/10"
+                            >
+                                <div className="absolute inset-0 group-hover:scale-[1.03] transition-transform duration-700">
+                                    <ProjectMotion variant={project.motion} />
+                                </div>
                             </a>
 
                             <div className="p-8">
                                 <div className="flex justify-between items-start mb-4">
-                                    <h3 className="font-display text-2xl md:text-3xl font-bold">{project.title}</h3>
+                                    <div className="flex flex-wrap items-center gap-3">
+                                        <h3 className="font-display text-2xl md:text-3xl font-bold">{project.title}</h3>
+                                        {project.inDevelopment && (
+                                            <span className="inline-flex items-center gap-2 rounded-full border border-orange-300/40 bg-orange-400/10 px-3 py-1 text-xs font-medium text-orange-200">
+                                                <span className="relative flex h-2 w-2">
+                                                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75 motion-reduce:animate-none" />
+                                                    <span className="relative inline-flex h-2 w-2 rounded-full bg-orange-400" />
+                                                </span>
+                                                {t('portfolio.status.dev')}
+                                            </span>
+                                        )}
+                                    </div>
                                     <a
                                         href={project.url}
                                         target="_blank"
@@ -96,7 +124,7 @@ export default function Portfolio() {
                                     </a>
                                 </div>
 
-                                <p className="text-gray-400 mb-6 h-12">{project.description}</p>
+                                <p className="text-gray-400 mb-6 md:min-h-[4.5rem]">{project.description}</p>
 
                                 <div className="flex flex-wrap gap-2">
                                     {project.tech.map((tech, i) => (
